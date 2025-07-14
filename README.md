@@ -4,7 +4,9 @@ This project implements an automated donation acknowledgement system using the S
 
 ## 🎯 Project Overview
 
-The system monitors changes to the `npsp__Acknowledgment_Date__c` field on Opportunity objects and automatically updates the `Acknowledgement_Letter_Sent__c` field when an acknowledgement date is populated. This provides seamless integration with existing donation acknowledgement workflows.
+The system monitors changes to the `npsp__Acknowledgment_Date__c` field on Opportunity objects and automatically updates the `Acknowledgement_Letter_Sent__c` custom field when an acknowledgement date is populated. 
+
+This obviously won't work unless you have the same custom field in your SF org, but I'm making this repo public for reference.
 
 ## 🏗️ Architecture
 
@@ -54,23 +56,6 @@ The system monitors changes to the `npsp__Acknowledgment_Date__c` field on Oppor
 2. **Field Change Detection**: Identifies when `npsp__Acknowledgment_Date__c` changes from null to a date value
 3. **Automatic Update**: Sets `Acknowledgement_Letter_Sent__c` to `true` for qualifying opportunities
 4. **Bulk Processing**: Efficiently handles multiple records in a single transaction
-
-### Example Workflow
-
-```apex
-// Before: Opportunity with no acknowledgement date
-Opportunity opp = [SELECT npsp__Acknowledgment_Date__c, Acknowledgement_Letter_Sent__c FROM Opportunity WHERE Id = :oppId];
-// npsp__Acknowledgment_Date__c = null
-// Acknowledgement_Letter_Sent__c = false
-
-// Update: Set acknowledgement date
-opp.npsp__Acknowledgment_Date__c = Date.today();
-update opp;
-
-// After: TDTM handler automatically updates letter sent flag
-// npsp__Acknowledgment_Date__c = 2025-07-14
-// Acknowledgement_Letter_Sent__c = true ← Automatically set by handler
-```
 
 ## 🔧 Configuration
 
@@ -128,7 +113,7 @@ The handler includes comprehensive logging that traces:
 ### Verify TDTM Registration
 
 ```bash
-sf data query execute -q "SELECT Id, npsp__Active__c, npsp__Class__c, npsp__Object__c, npsp__Trigger_Action__c FROM npsp__Trigger_Handler__c WHERE npsp__Class__c = 'LMT_OpportunityAcknowledgement_TDTM'"
+sf data query -f scripts/soql/select_tdtm_class.soql
 ```
 
 ## 📚 Development Resources
@@ -136,16 +121,3 @@ sf data query execute -q "SELECT Id, npsp__Active__c, npsp__Class__c, npsp__Obje
 - [NPSP TDTM Documentation](https://help.salesforce.com/s/articleView?id=sfdo.npsp_deploy_apex_tdtm.htm&type=5)
 - [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 - [NPSP Developer Guide](https://powerofus.force.com/s/article/NPSP-Developer-Guide)
-
-## 🏆 Success Criteria
-
-✅ **All Deliverables Complete**
-- Handler detects acknowledgement date changes
-- Letter sent flag automatically updated
-- All tests pass (100% pass rate)
-- TDTM framework properly registered
-- Automated deployment scripts provided
-
----
-
-**Status**: Ready for production deployment 🚀
