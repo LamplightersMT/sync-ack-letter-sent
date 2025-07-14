@@ -1,0 +1,3 @@
+SELECT Id, npsp__Active__c, npsp__Asynchronous__c, npsp__Class__c, npsp__Load_Order__c, npsp__Object__c, npsp__Trigger_Action__c
+FROM npsp__Trigger_Handler__c
+WHERE npsp__Class__c = 'LMT_OpportunityAcknowledgement_TDTM'

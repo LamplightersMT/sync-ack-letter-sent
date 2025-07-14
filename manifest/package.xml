@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Salesforce package.xml file format documentation: https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/manifest_files.htm -->
+<Package xmlns="https://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>LMT_OpportunityAcknowledgement_TDTM</members>
+        <members>LMT_OpportunityAcknowledgement_TDTMTest</members>
+        <name>ApexClass</name>
+    </types>
+    <version>57.0</version>
+</Package>

@@ -18,7 +18,6 @@ Never remove TODO comments unless you have completed the task.
 
 --source-path is not an option in the 'sf' CLI command, so do not use it. Use --dir-path instead.
 
-Test script is located at scripts/run_all_tests.sh - This test script does not run code coverage, it only runs tests.
 
 All deploys are done using the manifest file (package.xml) or individual files.
 

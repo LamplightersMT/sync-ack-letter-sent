@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Metadata file for LMT_OpportunityAcknowledgementTDTMTest.cls -->
+<!-- Documentation: https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_apexclass.htm -->
+<ApexClass xmlns="https://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <status>Active</status>
+</ApexClass>
