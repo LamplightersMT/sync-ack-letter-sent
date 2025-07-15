@@ -69,14 +69,6 @@ The handler is registered in the NPSP framework with these settings:
 - **Trigger Action**: `AfterUpdate`
 - **Load Order**: `3`
 
-### Manual Registration
-
-If needed, manually create the TDTM record:
-
-```bash
-sf data create record -o npsp__Trigger_Handler__c -v "npsp__Active__c=true npsp__Asynchronous__c=false npsp__Class__c='LMT_OpportunityAcknowledgement_TDTM' npsp__Load_Order__c=3 npsp__Object__c='Opportunity' npsp__Trigger_Action__c='AfterUpdate'"
-```
-
 ## 🧪 Testing
 
 ### Run Tests
