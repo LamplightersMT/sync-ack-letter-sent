@@ -5,7 +5,7 @@ ACTIVE=true
 ASYNC=false
 CLASS_NAME='LMT_OpportunityAcknowledgement_TDTM'
 LOAD_ORDER=3
-TRIGGER_ACTION='AfterUpdate'
+TRIGGER_ACTION='AfterInsert,AfterUpdate'
 #OPTS='-o ENV_ALIAS'
 OPTS=
 

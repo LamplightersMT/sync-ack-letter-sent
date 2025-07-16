@@ -20,7 +20,7 @@ This obviously won't work unless you have the same custom field in your SF org, 
 ### Technical Details
 
 - **Framework**: NPSP TDTM (Table-Driven Trigger Management)
-- **Trigger Action**: AfterUpdate on Opportunity object
+- **Trigger Action**: AfterUpdate, AfterInsert on Opportunity object
 - **Field Dependencies**: 
   - `npsp__Acknowledgment_Date__c` (NPSP standard field)
   - `Acknowledgement_Letter_Sent__c` (custom field)
@@ -68,6 +68,16 @@ The handler is registered in the NPSP framework with these settings:
 - **Object**: `Opportunity`
 - **Trigger Action**: `AfterUpdate`
 - **Load Order**: `3`
+
+## Trigger Action Support
+
+This project now supports the following trigger actions:
+- AfterInsert
+- AfterUpdate
+
+### Installation Instructions
+
+To register the trigger actions, run the `install_trigger.sh` script. Ensure that the `TRIGGER_ACTION` variable includes both `AfterInsert` and `AfterUpdate`.
 
 ## 🧪 Testing
 
